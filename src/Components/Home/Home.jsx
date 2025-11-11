@@ -1,46 +1,138 @@
-import React from 'react';
-import H1 from '../../assets/download.jpeg'
-import H2 from '../../assets/download (1).jpeg'
-
+import React, { use } from 'react';
+import BaImg1 from '../../assets/B2.jpg';
+import BaImg2 from '../../assets/B4.jpg';
+import BaImg3 from '../../assets/B5.jpg';
+import BaImg4 from '../../assets/B6.jpg';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Home = () => {
+    const {user} = use(AuthContext)
+    console.log(user)
     return (
-        <div>
-            <div className="carousel w-full">
+        <div className="relative">
+           
+            <div className="carousel w-full h-[70vh] md:h-[80vh] lg:h-[90vh]">
+                
                 <div id="slide1" className="carousel-item relative w-full">
+                    <div className="absolute inset-0 bg-black/40 z-10"></div>
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-                        className="w-full" />
-                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide4" className="btn btn-circle">❮</a>
-                        <a href="#slide2" className="btn btn-circle">❯</a>
+                        src={BaImg1}
+                        className="w-full object-cover"
+                        alt="Delicious food presentation"
+                    />
+                    <div className="absolute z-20 text-white w-full text-center top-1/2 transform -translate-y-1/2 px-4">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">
+                            Taste the Perfect
+                            <span className="text-amber-400 block">Flavors</span>
+                        </h1>
+                        <p className="text-lg md:text-xl mb-6 opacity-90 max-w-2xl mx-auto">
+                            Experience culinary excellence with our handcrafted dishes made from the freshest ingredients.
+                        </p>
+                        <div className="flex gap-4 justify-center">
+                            <button className="btn btn-primary bg-amber-500 border-amber-500 hover:bg-amber-600 hover:border-amber-600 text-white px-8 py-3">
+                                Order Now
+                            </button>
+                            <button className="btn btn-outline border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3">
+                                View Menu
+                            </button>
+                        </div>
+                    </div>
+                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between z-30">
+                        <a href="#slide4" className="btn btn-circle bg-black/50 hover:bg-black/70 border-none text-white">❮</a>
+                        <a href="#slide2" className="btn btn-circle bg-black/50 hover:bg-black-70 border-none text-white">❯</a>
                     </div>
                 </div>
+
+                
                 <div id="slide2" className="carousel-item relative w-full">
+                    <div className="absolute inset-0 bg-black/40 z-10"></div>
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-                        className="w-full" />
-                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide1" className="btn btn-circle">❮</a>
-                        <a href="#slide3" className="btn btn-circle">❯</a>
+                        src={BaImg2}
+                        className="w-full object-cover"
+                        alt="Fresh ingredients"
+                    />
+                    <div className="absolute z-20 text-white w-full text-center top-1/2 transform -translate-y-1/2 px-4">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">
+                            Fresh & Organic
+                            <span className="text-green-400 block">Ingredients</span>
+                        </h1>
+                        <p className="text-lg md:text-xl mb-6 opacity-90 max-w-2xl mx-auto">
+                            We source only the finest organic ingredients to create healthy and delicious meals for you.
+                        </p>
+                        <div className="flex gap-4 justify-center">
+                            <button className="btn btn-primary bg-green-600 border-green-600 hover:bg-green-700 hover:border-green-700 text-white px-8 py-3">
+                                Our Story
+                            </button>
+                            <button className="btn btn-outline border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between z-30">
+                        <a href="#slide1" className="btn btn-circle bg-black/50 hover:bg-black/70 border-none text-white">❮</a>
+                        <a href="#slide3" className="btn btn-circle bg-black/50 hover:bg-black/70 border-none text-white">❯</a>
                     </div>
                 </div>
+
+                
                 <div id="slide3" className="carousel-item relative w-full">
+                    <div className="absolute inset-0 bg-black/40 z-10"></div>
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-                        className="w-full" />
-                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide2" className="btn btn-circle">❮</a>
-                        <a href="#slide4" className="btn btn-circle">❯</a>
+                        src={BaImg3}
+                        className="w-full object-cover"
+                        alt="Chef preparing food"
+                    />
+                    <div className="absolute z-20 text-white w-full text-center top-1/2 transform -translate-y-1/2 px-4">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">
+                            Master Chefs
+                            <span className="text-red-400 block">At Work</span>
+                        </h1>
+                        <p className="text-lg md:text-xl mb-6 opacity-90 max-w-2xl mx-auto">
+                            Our experienced chefs bring passion and creativity to every dish they create.
+                        </p>
+                        <div className="flex gap-4 justify-center">
+                            <button className="btn btn-primary bg-red-500 border-red-500 hover:bg-red-600 hover:border-red-600 text-white px-8 py-3">
+                                Book Table
+                            </button>
+                            <button className="btn btn-outline border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3">
+                                Meet Our Team
+                            </button>
+                        </div>
+                    </div>
+                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between z-30">
+                        <a href="#slide2" className="btn btn-circle bg-black/50 hover:bg-black/70 border-none text-white">❮</a>
+                        <a href="#slide4" className="btn btn-circle bg-black/50 hover:bg-black/70 border-none text-white">❯</a>
                     </div>
                 </div>
+
+              
                 <div id="slide4" className="carousel-item relative w-full">
+                    <div className="absolute inset-0 bg-black/40 z-10"></div>
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-                        className="w-full" />
-                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide3" className="btn btn-circle">❮</a>
-                        <a href="#slide1" className="btn btn-circle">❯</a>
+                        src={BaImg4}
+                        className="w-full object-cover"
+                        alt="Dining experience"
+                    />
+                    <div className="absolute z-20 text-white w-full text-center top-1/2 transform -translate-y-1/2 px-4">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">
+                            Unforgettable
+                            <span className="text-purple-400 block">Dining Experience</span>
+                        </h1>
+                        <p className="text-lg md:text-xl mb-6 opacity-90 max-w-2xl mx-auto">
+                            Create lasting memories with our exceptional ambiance and world-class service.
+                        </p>
+                        <div className="flex gap-4 justify-center">
+                            <button className="btn btn-primary bg-purple-500 border-purple-500 hover:bg-purple-600 hover:border-purple-600 text-white px-8 py-3">
+                                Reserve Now
+                            </button>
+                            <button className="btn btn-outline border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3">
+                                View Gallery
+                            </button>
+                        </div>
+                    </div>
+                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between z-30">
+                        <a href="#slide3" className="btn btn-circle bg-black/50 hover:bg-black/70 border-none text-white">❮</a>
+                        <a href="#slide1" className="btn btn-circle bg-black/50 hover:bg-black/70 border-none text-white">❯</a>
                     </div>
                 </div>
             </div>
