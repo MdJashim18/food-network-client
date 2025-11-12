@@ -18,7 +18,6 @@ const FoodDetails = () => {
 
                     <div className="w-full md:w-1/2 space-y-4">
                         <h2 className="text-3xl font-bold bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent">{food.food_name}</h2>
-
                         <div className="text-gray-700 space-y-2">
                             <p><span className="font-semibold">Restaurant:</span> {food.restaurant_name}</p>
                             <p><span className="font-semibold">Location:</span> {food.restaurant_location}</p>
@@ -30,8 +29,7 @@ const FoodDetails = () => {
                     </div>
                 </div>
 
-                <div className="divider"></div>
-
+                
                 <div className="mt-6">
                     <p className="text-gray-600 leading-relaxed text-justify">
                         {food.description || "No description available."}

@@ -18,6 +18,7 @@ import UpdateReview from './Components/UpdateReview/UpdateReview.jsx';
 import AddReview from './Components/AddReview/AddReview.jsx';
 import Favorites from './Components/Favorites/Favorites.jsx';
 import Error from './Components/Error/Error.jsx';
+import Loading from './Components/Loading/Loading.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         loader:()=>fetch('http://localhost:3000/foods'),
+        hydrateFallbackElement:<Loading></Loading>,
         element: <Home></Home>
       },
       {
@@ -44,21 +46,25 @@ const router = createBrowserRouter([
       {
         path:'/allFoods',
         loader:()=>fetch('http://localhost:3000/foods'),
+        hydrateFallbackElement:<Loading></Loading>,
         element:<AllFoods></AllFoods>
       },
       {
         path:'/foodDetails/:id',
         loader:({params})=>fetch(`http://localhost:3000/foods/${params.id}`),
+        hydrateFallbackElement:<Loading></Loading>,
         element:<FoodDetails></FoodDetails>
       },
       {
         path:'/allReviews',
         loader:()=>fetch('http://localhost:3000/review'),
+        hydrateFallbackElement:<Loading></Loading>,
         element:<AllReviews></AllReviews>
       },
       {
         path:'/myReview',
         loader:()=>fetch('http://localhost:3000/reviews'),
+        hydrateFallbackElement:<Loading></Loading>,
         element:<MyReview></MyReview>
       },
       {
@@ -72,6 +78,7 @@ const router = createBrowserRouter([
       {
         path:'/myFavorites',
         loader:()=>fetch('http://localhost:3000/favorites'),
+        hydrateFallbackElement:<Loading></Loading>,
         element:<Favorites></Favorites>
       },
       {

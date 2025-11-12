@@ -1,15 +1,15 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
-import { Outlet } from 'react-router';
+import Loading from '../Loading/Loading';
 
 
 const Profile = () => {
     const { user } = use(AuthContext);
 
 
-    // if (!user) {
-    //     return <Loading />;
-    // }
+    if (!user) {
+        return <Loading></Loading>;
+    }
 
     const { photoURL ,displayName, email } = user;
 
