@@ -11,15 +11,16 @@ const Navbar = () => {
         <>
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/allFoods'>All Foods</NavLink></li>
-            {/* 
+            <li><NavLink to='/allReviews'>All Reviews</NavLink></li>
+            
             {user && (
                 <>
-                    <li><NavLink to='/myProducts'>My Products</NavLink></li>
-                    <li><NavLink to='/myBids'>Bids</NavLink></li>
-                    <li><NavLink to='/createAProduct'>Create A Product</NavLink></li>
+                    <li><NavLink to='/myFavorites'>My Favorite</NavLink></li>
+                    {/* <li><NavLink to='/myBids'>Bids</NavLink></li>
+                    <li><NavLink to='/createAProduct'>Create A Product</NavLink></li> */}
                 </>
             )}
-            */}
+           
         </>
     );
 
@@ -71,8 +72,8 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
                         >
                             <li><NavLink to="/profile">Profile</NavLink></li>
-                            <li><NavLink to="/add-review">Add Review</NavLink></li>
-                            <li><NavLink to="/my-reviews">My Reviews</NavLink></li>
+                            <li><NavLink to="/addReview">Add Review</NavLink></li>
+                            <li><NavLink to="/myReview">My Reviews</NavLink></li>
                             <li><button onClick={handleLogOut}>Logout</button></li>
                         </ul>
                     </div>
