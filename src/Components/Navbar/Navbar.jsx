@@ -47,7 +47,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Food Lovers</a>
+                <a className="btn btn-ghost bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent text-xl">Food Lovers</a>
             </div>
 
             <div className="navbar-center hidden lg:flex">

@@ -1,9 +1,49 @@
-import React from 'react';
+import React, { use } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Foods = ({ food }) => {
-    const { photo, food_name, restaurant_name, restaurant_location, reviewer_name, rating,_id } = food;
+    const { user } = use(AuthContext)
+    const { photo, food_name, restaurant_name, restaurant_location, reviewer_name, rating, _id } = food;
+
+    const handleAddFavorite = (e) => {
+        e.preventDefault();
+        const newFavorite = {
+            food_name,
+            photo,
+            email: user.email,
+        };
+
+        fetch('http://localhost:3000/favorites', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newFavorite)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Your review has been added.",
+                        icon: "success"
+                    });
+                    e.target.reset();
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                Swal.fire({
+                    title: "Error!",
+                    text: "Could not add review. Please try again.",
+                    icon: "error"
+                });
+            });
+
+    };
     return (
         <div className="card bg-gradient-to-br from-white to-gray-50 w-96 shadow-xl hover:shadow-2xl transition-all duration-500  border border-gray-100 rounded-2xl overflow-hidden group mt-20">
             <figure className=" overflow-hidden p-5">
@@ -53,8 +93,13 @@ const Foods = ({ food }) => {
                     </div>
                 </div>
 
-                <div className='flex justify-center items-center'>
-                    <Link to={`/foodDetails/${_id}`} className='btn w-full font-bold bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white mt-4 rounded-2xl'>View Details</Link>
+                <div className='flex justify-between '>
+                    <div className=''>
+                        <Link to={`/foodDetails/${_id}`} className='btn font-bold bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white rounded-2xl'>View Details</Link>
+                    </div>
+                    <div>
+                        <button onClick={handleAddFavorite} className='btn font-bold bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent hover:bg-[#632EE3] rounded-2xl'>Favorite</button>
+                    </div>
                 </div>
             </div>
         </div>
