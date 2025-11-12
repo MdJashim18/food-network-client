@@ -17,6 +17,7 @@ import MyReview from './Components/MyReveiw/MyReview.jsx';
 import UpdateReview from './Components/UpdateReview/UpdateReview.jsx';
 import AddReview from './Components/AddReview/AddReview.jsx';
 import Favorites from './Components/Favorites/Favorites.jsx';
+import Error from './Components/Error/Error.jsx';
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
         path:'/myFavorites',
         loader:()=>fetch('http://localhost:3000/favorites'),
         element:<Favorites></Favorites>
+      },
+      {
+        path:'/*',
+        element:<Error></Error>
       }
     ]
   },

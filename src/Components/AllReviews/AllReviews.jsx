@@ -35,7 +35,7 @@ const AllReviews = () => {
             </div>
 
             <h2 className="text-2xl font-bold text-center mb-6 bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent">
-                🍽️ Food Review Summary ({topRatedReview.length})
+                Food Review Summary ({topRatedReview.length})
             </h2>
 
             <div className="overflow-x-auto bg-white shadow-xl rounded-2xl border border-gray-100">
