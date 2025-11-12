@@ -144,9 +144,7 @@ const Home = () => {
 
 
             <div>
-                <div>
-
-                </div>
+                <h2 className="text-3xl text-center my-10 font-bold bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent">Top Rated Foods</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                     {
                         topRatedFoods.map((food) => <Foods key={food._id} food={food}></Foods>)

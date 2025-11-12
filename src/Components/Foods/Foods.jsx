@@ -45,7 +45,7 @@ const Foods = ({ food }) => {
 
     };
     return (
-        <div className="card bg-gradient-to-br from-white to-gray-50 w-96 shadow-xl hover:shadow-2xl transition-all duration-500  border border-gray-100 rounded-2xl overflow-hidden group mt-20">
+        <div className="card bg-gradient-to-br from-white to-gray-50 w-96 shadow-xl hover:shadow-2xl transition-all duration-500  border border-gray-100 rounded-2xl overflow-hidden group">
             <figure className=" overflow-hidden p-5">
                 <img
                     src={photo}
