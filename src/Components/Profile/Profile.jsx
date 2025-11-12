@@ -5,8 +5,6 @@ import Loading from '../Loading/Loading';
 
 const Profile = () => {
     const { user } = use(AuthContext);
-
-
     if (!user) {
         return <Loading></Loading>;
     }
@@ -15,9 +13,6 @@ const Profile = () => {
 
     return (
         <div className="w-11/12 mx-auto mb-10">
-
-
-
             <h1 className="text-3xl md:text-4xl text-center font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent my-8">
                 Profile
             </h1>

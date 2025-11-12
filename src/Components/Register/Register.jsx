@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-// import { sendEmailVerification } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
