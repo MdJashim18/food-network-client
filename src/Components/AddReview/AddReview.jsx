@@ -32,15 +32,15 @@ const AddReview = () => {
             },
             body: JSON.stringify(newReview)
         })
-            .then(res => res.json())  // convert response to JSON
+            .then(res => res.json()) 
             .then(data => {
-                if (data.insertedId) {  // now data.insertedId exists
+                if (data.insertedId) {
                     Swal.fire({
                         title: "Success!",
                         text: "Your review has been added.",
                         icon: "success"
                     });
-                    e.target.reset(); // optional: reset the form
+                    e.target.reset();
                 }
             })
             .catch(err => {
