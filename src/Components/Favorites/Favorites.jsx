@@ -20,11 +20,7 @@ const Favorites = () => {
                 .catch(err => console.error('Error fetching favorites:', err));
         }
     }, [user?.email]);
-
-
-
-
-
+    
     const handleDelete = (_id) => {
         Swal.fire({
             title: 'Are you sure?',

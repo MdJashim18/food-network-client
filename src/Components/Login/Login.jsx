@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -6,10 +6,9 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
-    const { LogIn, SignInWithGoogle,resetPassword } = useContext(AuthContext);
+    const { LogIn, SignInWithGoogle} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    const [email, setEmail] = useState('');
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -42,16 +41,6 @@ const Login = () => {
             });
     };
 
-    const handlePasswordReset = ()=>{
-        resetPassword(email).then(()=>{
-            toast("Password reset email sent! Check your inbox.");
-        })
-        .catch(error=>{
-            console.log(error)
-            toast("Failed to send reset email. Please try again.");
-        })
-    }
-
     return (
         <div className='flex justify-center items-center min-h-screen'>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
@@ -63,7 +52,6 @@ const Login = () => {
                             <input type="email" className="input" name='email' placeholder="Email" required />
                             <label className="label">Password</label>
                             <input type="password" className="input" name='password' placeholder="Password" required />
-                            {/* <div onClick={handlePasswordReset}><a className="link link-hover text-sm text-blue-600">Forgot password?</a></div> */}
 
                             <button className="btn btn-neutral mt-4">Login</button>
                             <button 
@@ -75,7 +63,7 @@ const Login = () => {
                             </button>
 
                             <p className='font-semibold text-center pt-5'>
-                                Don’t Have An Account? 
+                                Don't Have An Account? 
                                 <Link className='text-secondary' to="/register"> Register</Link>
                             </p>
                         </fieldset>
