@@ -4,15 +4,20 @@ import BaImg2 from '../../assets/B4.jpg';
 import BaImg3 from '../../assets/B5.jpg';
 import BaImg4 from '../../assets/B6.jpg';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { Link, useLoaderData } from 'react-router';
+import Foods from '../Foods/Foods';
 
 const Home = () => {
-    const {user} = use(AuthContext)
+    const { user } = use(AuthContext)
+    const foodData = useLoaderData()
     console.log(user)
+    console.log(foodData)
+    const topRatedFoods = [...foodData].sort((a, b) => b.rating - a.rating).slice(0, 6)
     return (
         <div className="relative">
-           
+
             <div className="carousel w-full h-[70vh] md:h-[80vh] lg:h-[90vh]">
-                
+
                 <div id="slide1" className="carousel-item relative w-full">
                     <div className="absolute inset-0 bg-black/40 z-10"></div>
                     <img
@@ -43,7 +48,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                
+
                 <div id="slide2" className="carousel-item relative w-full">
                     <div className="absolute inset-0 bg-black/40 z-10"></div>
                     <img
@@ -74,7 +79,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                
+
                 <div id="slide3" className="carousel-item relative w-full">
                     <div className="absolute inset-0 bg-black/40 z-10"></div>
                     <img
@@ -105,7 +110,7 @@ const Home = () => {
                     </div>
                 </div>
 
-              
+
                 <div id="slide4" className="carousel-item relative w-full">
                     <div className="absolute inset-0 bg-black/40 z-10"></div>
                     <img
@@ -135,6 +140,27 @@ const Home = () => {
                         <a href="#slide1" className="btn btn-circle bg-black/50 hover:bg-black/70 border-none text-white">❯</a>
                     </div>
                 </div>
+            </div>
+
+
+            <div>
+                <div>
+
+                </div>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                    {
+                        topRatedFoods.map((food) => <Foods key={food._id} food={food}></Foods>)
+                    }
+                </div>
+            </div>
+
+            <div className='w-40 mx-auto my-10'>
+                <Link
+                    to={`/allFoods`}
+                    className="btn  text-center py-2 mt-3 bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white font-semibold rounded-lg shadow-md hover:shadow-xl transition-all"
+                >
+                    View More
+                </Link>
             </div>
         </div>
     );

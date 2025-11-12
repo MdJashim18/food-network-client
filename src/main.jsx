@@ -10,6 +10,8 @@ import Login from './Components/Login/Login.jsx';
 import Register from './Components/Register/Register.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import Profile from './Components/Profile/Profile.jsx';
+import AllFoods from './Components/AllFoods/AllFoods.jsx';
+import FoodDetails from './Components/FoodDetails/FoodDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        loader:()=>fetch('http://localhost:3000/foods'),
         element: <Home></Home>
       },
       {
@@ -31,6 +34,16 @@ const router = createBrowserRouter([
       {
         path:'/profile',
         element:<Profile></Profile>
+      },
+      {
+        path:'/allFoods',
+        loader:()=>fetch('http://localhost:3000/foods'),
+        element:<AllFoods></AllFoods>
+      },
+      {
+        path:'/foodDetails/:id',
+        loader:({params})=>fetch(`http://localhost:3000/foods/${params.id}`),
+        element:<FoodDetails></FoodDetails>
       }
     ]
   },
