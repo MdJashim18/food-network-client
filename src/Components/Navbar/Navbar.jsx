@@ -13,13 +13,13 @@ const Navbar = () => {
             <li><NavLink to='/allFoods'>All Foods</NavLink></li>
             <li><NavLink to='/allReviews'>All Reviews</NavLink></li>
             
-            {user && (
+            {/* {user && (
                 <>
                     <li><NavLink to='/myFavorites'>My Favorite</NavLink></li>
-                    {/* <li><NavLink to='/myBids'>Bids</NavLink></li>
-                    <li><NavLink to='/createAProduct'>Create A Product</NavLink></li> */}
+                    <li><NavLink to='/myBids'>Bids</NavLink></li>
+                    <li><NavLink to='/createAProduct'>Create A Product</NavLink></li>
                 </>
-            )}
+            )} */}
            
         </>
     );
@@ -74,6 +74,7 @@ const Navbar = () => {
                             <li><NavLink to="/profile">Profile</NavLink></li>
                             <li><NavLink to="/addReview">Add Review</NavLink></li>
                             <li><NavLink to="/myReview">My Reviews</NavLink></li>
+                            <li><NavLink to="/myFavorites">My Favorite</NavLink></li>
                             <li><button onClick={handleLogOut}>Logout</button></li>
                         </ul>
                     </div>

@@ -1,25 +1,48 @@
-import React, { use } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router';
-import { AuthContext } from '../../Provider/AuthProvider';
 
 const AllReviews = () => {
-    const allReview = useLoaderData()
-    const {user} = use(AuthContext)
-    const topRatedReview = [...allReview].sort((a, b) => b.rating - a.rating)
-    console.log(allReview)
+    const initialReviews = useLoaderData();
+    const [reviews, setReviews] = useState(initialReviews || []);
+    const [search, setSearch] = useState('');
+
+    useEffect(() => {
+        const fetchReviews = async () => {
+            const url = search
+                ? `http://localhost:3000/reviews?search=${search}`
+                : 'http://localhost:3000/reviews';
+
+            const res = await fetch(url);
+            const data = await res.json();
+            setReviews(data);
+        };
+        fetchReviews();
+    }, [search]);
+
+    const topRatedReview = [...reviews].sort((a, b) => b.star_rating - a.star_rating);
+
     return (
         <div className="p-6">
+            <div className="mb-6 flex justify-center">
+                <input
+                    type="text"
+                    placeholder="Search by food name..."
+                    className="input input-bordered w-full max-w-md"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+            </div>
+
             <h2 className="text-2xl font-bold text-center mb-6 bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent">
                 🍽️ Food Review Summary ({topRatedReview.length})
             </h2>
 
             <div className="overflow-x-auto bg-white shadow-xl rounded-2xl border border-gray-100">
                 <table className="table w-full">
-                    
                     <thead className="bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white text-sm uppercase">
                         <tr>
-                            <th className="py-3">SL No.</th>
+                            <th>SL No.</th>
                             <th>Food</th>
                             <th>Restaurant</th>
                             <th>Location</th>
@@ -35,7 +58,7 @@ const AllReviews = () => {
                             <tr key={review._id} className="hover:bg-gray-50 transition">
                                 <td className="font-semibold">{index + 1}</td>
 
-                                
+                                {/* Food Name & Image */}
                                 <td>
                                     <div className="flex items-center gap-4">
                                         <div className="avatar">
@@ -54,17 +77,10 @@ const AllReviews = () => {
                                     </div>
                                 </td>
 
-                               
-                                <td>
-                                    <p className="font-medium">{review.restaurant_name}</p>
-                                </td>
+                                <td className="font-medium">{review.restaurant_name}</td>
+                                <td className="text-gray-600">{review.location}</td>
 
-                               
-                                <td>
-                                    <p className="text-gray-600">{review.location}</p>
-                                </td>
-
-                                
+                                {/* Rating */}
                                 <td>
                                     <div className="flex items-center gap-1 text-yellow-500">
                                         {Array.from({ length: review.star_rating }).map((_, i) => (
@@ -74,20 +90,14 @@ const AllReviews = () => {
                                     </div>
                                 </td>
 
-                                
-                                <td className="max-w-xs">
-                                    <p className="text-gray-700 text-sm line-clamp-2">{review.review_text}</p>
+                                <td className="max-w-xs text-gray-700 text-sm line-clamp-2">
+                                    {review.review_text}
                                 </td>
 
-                                <td>
-                                    <p className="text-gray-600">{review.date_time}</p>
-                                </td>
+                                <td className="text-gray-600">{review.date_time}</td>
 
-                               
                                 <td>
-                                    <button
-                                        className="btn btn-xs bg-gradient-to-r from-red-500 to-pink-500 text-white hover:scale-105 transition"
-                                    >
+                                    <button className="btn btn-xs bg-gradient-to-r from-red-500 to-pink-500 text-white hover:scale-105 transition">
                                         Delete
                                     </button>
                                 </td>
