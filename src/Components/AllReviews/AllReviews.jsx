@@ -57,8 +57,6 @@ const AllReviews = () => {
                         {topRatedReview.map((review, index) => (
                             <tr key={review._id} className="hover:bg-gray-50 transition">
                                 <td className="font-semibold">{index + 1}</td>
-
-                                {/* Food Name & Image */}
                                 <td>
                                     <div className="flex items-center gap-4">
                                         <div className="avatar">
@@ -79,8 +77,6 @@ const AllReviews = () => {
 
                                 <td className="font-medium">{review.restaurant_name}</td>
                                 <td className="text-gray-600">{review.location}</td>
-
-                                {/* Rating */}
                                 <td>
                                     <div className="flex items-center gap-1 text-yellow-500">
                                         {Array.from({ length: review.star_rating }).map((_, i) => (
