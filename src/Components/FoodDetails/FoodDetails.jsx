@@ -1,18 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useLoaderData, Link } from 'react-router';
-import { AuthContext } from '../../Provider/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
 
 const FoodDetails = () => {
-    const { user } = useContext(AuthContext);
     const food = useLoaderData();
-
-    const handleTryNow = (e) => {
-        e.preventDefault();
-        toast.success("You have successfully tried this food!");
-        e.target.reset();
-    };
-
     return (
         <div>
             <div className="max-w-6xl mx-auto p-6 bg-base-200 rounded-2xl shadow-lg my-10">
@@ -49,7 +39,7 @@ const FoodDetails = () => {
                 </div>
                 <Link to="/" className='btn bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white mt-4'>Back to home</Link>
             </div>
-            <ToastContainer />
+            
         </div>
     );
 };
