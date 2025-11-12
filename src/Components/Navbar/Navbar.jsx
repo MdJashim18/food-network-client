@@ -12,15 +12,6 @@ const Navbar = () => {
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/allFoods'>All Foods</NavLink></li>
             <li><NavLink to='/allReviews'>All Reviews</NavLink></li>
-            
-            {/* {user && (
-                <>
-                    <li><NavLink to='/myFavorites'>My Favorite</NavLink></li>
-                    <li><NavLink to='/myBids'>Bids</NavLink></li>
-                    <li><NavLink to='/createAProduct'>Create A Product</NavLink></li>
-                </>
-            )} */}
-           
         </>
     );
 

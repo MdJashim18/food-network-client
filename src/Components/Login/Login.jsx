@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router';
-
 import { ToastContainer, toast } from 'react-toastify';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../Provider/AuthProvider';
