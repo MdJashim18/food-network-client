@@ -55,7 +55,7 @@ const AddReview = () => {
     };
 
     return (
-        <div className="w-7xl mx-auto mt-12 p-8 bg-gradient-to-br from-white to-gray-100 rounded-3xl shadow-xl border border-gray-200 my-20">
+        <div className="w-[95%]  mx-auto mt-12 p-8 bg-gradient-to-br from-white to-gray-100 rounded-3xl shadow-xl border border-gray-200 my-20">
             <h2 className="text-3xl font-bold mb-8 text-center text-purple-600">
                 Add Your Review
             </h2>

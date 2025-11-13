@@ -16,7 +16,7 @@ const Home = () => {
     const topRatedFoods = [...foodData].sort((a, b) => b.rating - a.rating).slice(0, 6);
 
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className="w-[95%] mx-auto">
            
             <div className="carousel w-full h-[70vh] rounded-2xl overflow-hidden">
                 <div id="slide1" className="carousel-item relative w-full">
@@ -121,7 +121,7 @@ const Home = () => {
             </div>
 
            
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="w-[95%]  mx-auto px-4">
                 <h2 className="text-3xl text-center my-10 font-bold bg-gradient-to-r from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent">
                     Top Rated Foods
                 </h2>

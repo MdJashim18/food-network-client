@@ -4,7 +4,7 @@ import { useLoaderData, Link } from 'react-router';
 const FoodDetails = () => {
     const food = useLoaderData();
     return (
-        <div className='w-7xl mx-auto'>
+        <div className='w-[95%]  mx-auto'>
             <div className="max-w-6xl mx-auto p-6 bg-base-200 rounded-2xl shadow-lg my-10">
                 <div className="flex flex-col md:flex-row items-center gap-8">
 

@@ -45,7 +45,7 @@ const Favorites = () => {
     };
 
     return (
-        <div className="w-7xl mx-auto my-20">
+        <div className="w-[95%] mx-auto my-20">
             <h2 className="text-3xl font-extrabold mb-8 text-center text-purple-600">
                 My Favorites ({favorites.length})
             </h2>

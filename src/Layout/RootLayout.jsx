@@ -5,7 +5,7 @@ import Footer from '../Components/Footer/Footer';
 
 const RootLayout = () => {
     return (
-        <div className='w-7xl mx-auto'>
+        <div className='w-[95%]  mx-auto'>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

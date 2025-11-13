@@ -23,7 +23,7 @@ const AllReviews = () => {
     const topRatedReview = [...reviews].sort((a, b) => b.star_rating - a.star_rating);
 
     return (
-        <div className="p-6 w-7xl mx-auto">
+        <div className="p-6 w-[95%]  mx-auto">
             <div className="mb-6 flex justify-center">
                 <input
                     type="text"
