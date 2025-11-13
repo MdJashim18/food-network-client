@@ -8,7 +8,7 @@ const UpdateReview = () => {
 
     useEffect(() => {
         if (_id) {
-            fetch(`http://localhost:3000/review/${_id}`)
+            fetch(`https://food-network-api.vercel.app/review/${_id}`)
                 .then(res => res.json())
                 .then(data => setReview(data))
                 .catch(err => console.error(err));
@@ -21,7 +21,7 @@ const UpdateReview = () => {
         e.preventDefault();
         const review_text = e.target.review_text.value;
 
-        fetch(`http://localhost:3000/review/${_id}`, {
+        fetch(`https://food-network-api.vercel.app/review/${_id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ review_text })

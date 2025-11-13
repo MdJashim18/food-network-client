@@ -12,7 +12,7 @@ const Favorites = () => {
     useEffect(() => {
         if (user?.email) {
 
-            fetch(`http://localhost:3000/favorites/email?email=${user.email}`)
+            fetch(`https://food-network-api.vercel.app/favorites/email?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setFavorites(data);
@@ -20,7 +20,7 @@ const Favorites = () => {
                 .catch(err => console.error('Error fetching favorites:', err));
         }
     }, [user?.email]);
-    
+
     const handleDelete = (_id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -32,7 +32,7 @@ const Favorites = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/favorites/${_id}`, { method: 'DELETE' })
+                fetch(`https://food-network-api.vercel.app/favorites/${_id}`, { method: 'DELETE' })
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
@@ -45,7 +45,7 @@ const Favorites = () => {
     };
 
     return (
-        <div className="max-w-5xl mx-auto my-20">
+        <div className="w-7xl mx-auto my-20">
             <h2 className="text-3xl font-extrabold mb-8 text-center text-purple-600">
                 My Favorites ({favorites.length})
             </h2>

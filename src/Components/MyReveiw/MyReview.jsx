@@ -12,7 +12,7 @@ const MyReview = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/reviews?email=${user.email}`)
+            fetch(`https://food-network-api.vercel.app/reviews?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => setReviews(data))
                 .catch(err => console.error('Error fetching reviews:', err));
@@ -31,7 +31,7 @@ const MyReview = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/review/${_id}`, { method: 'DELETE' })
+                fetch(`https://food-network-api.vercel.app/review/${_id}`, { method: 'DELETE' })
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
@@ -45,7 +45,7 @@ const MyReview = () => {
 
 
     return (
-        <div className="max-w-6xl mx-auto p-6 mt-10 bg-base-200 rounded-2xl shadow-lg my-20">
+        <div className="w-7xl mx-auto p-6 mt-10 bg-base-200 rounded-2xl shadow-lg my-20">
             <h2 className="text-2xl font-bold mb-6 text-center">My Reviews ({reviews.length})</h2>
 
             <div className="overflow-x-auto">

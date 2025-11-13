@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader:()=>fetch('http://localhost:3000/foods'),
+        loader:()=>fetch('https://food-network-api.vercel.app/foods'),
         hydrateFallbackElement:<Loading></Loading>,
         element: <Home></Home>
       },
@@ -45,25 +45,25 @@ const router = createBrowserRouter([
       },
       {
         path:'/allFoods',
-        loader:()=>fetch('http://localhost:3000/foods'),
+        loader:()=>fetch('https://food-network-api.vercel.app/foods'),
         hydrateFallbackElement:<Loading></Loading>,
         element:<AllFoods></AllFoods>
       },
       {
         path:'/foodDetails/:id',
-        loader:({params})=>fetch(`http://localhost:3000/foods/${params.id}`),
+        loader:({params})=>fetch(`https://food-network-api.vercel.app/foods/${params.id}`),
         hydrateFallbackElement:<Loading></Loading>,
         element:<FoodDetails></FoodDetails>
       },
       {
         path:'/allReviews',
-        loader:()=>fetch('http://localhost:3000/review'),
+        loader:()=>fetch('https://food-network-api.vercel.app/review'),
         hydrateFallbackElement:<Loading></Loading>,
         element:<AllReviews></AllReviews>
       },
       {
         path:'/myReview',
-        loader:()=>fetch('http://localhost:3000/reviews'),
+        loader:()=>fetch('https://food-network-api.vercel.app/reviews'),
         hydrateFallbackElement:<Loading></Loading>,
         element:<MyReview></MyReview>
       },
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/myFavorites',
-        loader:()=>fetch('http://localhost:3000/favorites'),
+        loader:()=>fetch('https://food-network-api.vercel.app/favorites'),
         hydrateFallbackElement:<Loading></Loading>,
         element:<Favorites></Favorites>
       },

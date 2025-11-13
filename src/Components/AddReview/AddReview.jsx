@@ -25,7 +25,7 @@ const AddReview = () => {
             date_time: new Date().toLocaleString()
         };
 
-        fetch('http://localhost:3000/review', {
+        fetch('https://food-network-api.vercel.app/review', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ const AddReview = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto mt-12 p-8 bg-gradient-to-br from-white to-gray-100 rounded-3xl shadow-xl border border-gray-200 my-20">
+        <div className="w-7xl mx-auto mt-12 p-8 bg-gradient-to-br from-white to-gray-100 rounded-3xl shadow-xl border border-gray-200 my-20">
             <h2 className="text-3xl font-bold mb-8 text-center text-purple-600">
                 Add Your Review
             </h2>
@@ -71,8 +71,6 @@ const AddReview = () => {
                         required
                     />
                 </div>
-
-
                 <div>
                     <label className="label text-gray-700 font-semibold">Food Image URL</label>
                     <input
